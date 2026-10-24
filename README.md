@@ -467,18 +467,14 @@ MSI of the same version replace the installed one without asking. Two different 
 be told apart by version, so if your deployment tool checks the file, pin its SHA-256 from
 `SHA256SUMS.txt` (`Get-FileHash <file> -Algorithm SHA256`).
 
-**Signing identities.** The Windows MSIs and both executables are signed through Azure Trusted
-Signing with a certificate issued to `Learning Machines Inc` (Atlanta, Georgia, US). The macOS app
-and command-line tool are signed with the Developer ID `Learning Machines LLC (DJ6XS33FX8)` and
-notarized. The MSI's manufacturer, shown as the publisher in Installed apps, is
-`Learning Machines LLC`.
+**Signing identities.** PageForge is published by LiVi Software Company, which is the publisher shown in Installed apps (the MSI's manufacturer). The code-signing identities of the original PdfCraft releases, issued to Learning Machines, are not used for PageForge builds, so a build you compile yourself or receive without a signature from LiVi Software Company is unsigned and Windows or macOS may warn about it. Check the SHA-256 against `SHA256SUMS.txt` before installing.
 
 ### macOS
 
 | Build | File | Notes |
 |---|---|---|
-| App, universal (Apple silicon + Intel) | `pdfcraft-<ver>-macos-universal.dmg` | Signed and notarized |
-| Command-line tool, universal | `pdfcraft-cli-<ver>-macos-universal.zip` | Signed and notarized |
+| App, universal (Apple silicon + Intel) | `pdfcraft-<ver>-macos-universal.dmg` | Signing: see Signing identities above |
+| Command-line tool, universal | `pdfcraft-cli-<ver>-macos-universal.zip` | Signing: see Signing identities above |
 
 ### Linux
 
