@@ -46,9 +46,16 @@
 
 ---
 
-## Source
+## Source and credits
 
-PageForge is derived from [PdfCraft](https://github.com/storytold/pdfcraft) (MIT OR Apache-2.0). Source: [github.com/sarayunova/PageForge](https://github.com/sarayunova/PageForge).
+- **Web:** [liviverse.com](https://liviverse.com)
+- **Source:** [github.com/sarayunova/PageForge-rs](https://github.com/sarayunova/PageForge-rs)
+
+PageForge is built on [PdfCraft](https://github.com/storytold/pdfcraft), the open-source Rust PDF
+application by the ArtCraft Team and the PdfCraft contributors, released under MIT OR Apache-2.0. The
+engine, the renderer, the editing tools and most of the translations are their work, and we are grateful
+for it. Their copyright and licence notices are kept in [NOTICE](NOTICE), and the full contributor list
+is in the app under Help ▸ About ▸ Contributors. PageForge is not affiliated with or endorsed by the ArtCraft Team.
 
 ## Highlights
 

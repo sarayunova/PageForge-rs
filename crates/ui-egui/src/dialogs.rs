@@ -1184,6 +1184,10 @@ fn dialogs(app: &mut PdfCraftApp, ctx: &egui::Context) {
                         });
                         ui.add_space(6.0);
                         ui.label(tl!("A clean-room, open-source PDF application written in Rust. MIT OR Apache-2.0."));
+                        // Credit to the project this is built on. Not translated: it names people and licences.
+                        ui.add_space(4.0);
+                        ui.label("PageForge is based on PdfCraft, by the ArtCraft Team and the PdfCraft contributors (MIT OR Apache-2.0).");
+                        ui.hyperlink_to("github.com/storytold/pdfcraft", "https://github.com/storytold/pdfcraft");
                         ui.label(
                             egui::RichText::new(
                                 "Rendering: hayro (bootstrap) · UI: egui · Icons: Lucide (ISC) · Fonts: Inter, JetBrains Mono, Dancing Script (OFL)",

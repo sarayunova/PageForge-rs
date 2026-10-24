@@ -1,5 +1,4 @@
-//! Community links: the Discord button is one click away everywhere; Help menu, About dialog and
-//! home screen open the ArtCraft and PageForge pages.
+//! Links: Help menu, About dialog and home screen open the PageForge pages.
 
 use egui_kittest::Harness;
 use egui_kittest::kittest::Queryable;
@@ -18,24 +17,10 @@ fn harness(setup: impl FnOnce(&mut PdfCraftApp) + 'static) -> Harness<'static, P
 }
 
 #[test]
-fn discord_button_in_the_top_bar_opens_discord() {
-    let mut h = harness(|_| {});
-    h.get_by_label("Discord").click();
-    h.run_steps(2);
-    assert_eq!(h.state().last_opened_url.as_deref(), Some(links::DISCORD));
-    assert_eq!(links::DISCORD, "https://discord.gg/artcraft");
-}
-
-#[test]
 fn home_screen_links() {
-    for (label, url) in [
-        ("Join our Discord", links::DISCORD),
-        ("PageForge web page", "https://getartcraft.com/apps/pdfcraft"),
-        ("PageForge on GitHub", "https://github.com/storytold/pdfcraft"),
-        ("ArtCraft website", "https://getartcraft.com"),
-    ] {
+    for (label, url) in [("PageForge web page", links::APP_PAGE), ("PageForge on GitHub", links::GITHUB)] {
         let mut h = harness(|_| {});
-        h.get_by_label("Get help, share feedback and follow development on Discord.");
+        h.get_by_label("PageForge web page");
         h.get_by_label(label).click();
         h.run_steps(2);
         assert_eq!(h.state().last_opened_url.as_deref(), Some(url), "{label}");
@@ -52,9 +37,9 @@ fn about_dialog_shows_the_name_and_links() {
     });
     assert_eq!(h.query_all_by_label("ArtCraft").count(), 0, "no ArtCraft mark or wordmark");
     assert!(h.query_all_by_label("PageForge").count() >= 1, "the About dialog names the app");
-    h.get_by_label("Join our Discord").click();
+    h.get_by_label("PageForge on GitHub").click();
     h.run_steps(2);
-    assert_eq!(h.state().last_opened_url.as_deref(), Some(links::DISCORD));
+    assert_eq!(h.state().last_opened_url.as_deref(), Some(links::GITHUB));
 }
 
 #[test]
