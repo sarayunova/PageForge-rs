@@ -1,11 +1,11 @@
-PdfCraft
+PageForge
 Copyright (c) 2026 ArtCraft Team and the PdfCraft contributors.
+PageForge is derived from PdfCraft (https://github.com/storytold/pdfcraft); changes (c) 2026 the PageForge authors.
 Licensed under the MIT License or the Apache License, Version 2.0, at your option
 (LICENSE-MIT, LICENSE-APACHE).
 
-The ArtCraft name, wordmark and logos in docs/brand/ are trademarks of the ArtCraft Team. They are
-not open source and are not covered by the license above; their terms are in
-docs/brand/LICENSE-brand.txt.
+The ArtCraft name and logos are trademarks of the ArtCraft Team. PageForge does not include them
+and is not affiliated with or endorsed by the ArtCraft Team.
 
 Third-party material
 
