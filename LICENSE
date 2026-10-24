@@ -1,0 +1,17 @@
+PageForge is licensed under either of
+
+  * the Apache License, Version 2.0 (LICENSE-APACHE or https://www.apache.org/licenses/LICENSE-2.0)
+  * the MIT licence (LICENSE-MIT or https://opensource.org/licenses/MIT)
+
+at your option (SPDX: MIT OR Apache-2.0).
+
+PageForge is derived from PdfCraft (https://github.com/storytold/pdfcraft),
+Copyright (c) 2026 ArtCraft Team and the PdfCraft contributors, whose licence
+notices are kept in LICENSE-MIT, LICENSE-APACHE and NOTICE. Changes are
+Copyright (c) 2026 the PageForge authors, under the same terms.
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in PageForge by you, as defined in the Apache-2.0 licence, shall be
+dual licensed as above, without any additional terms or conditions.
+
+Third-party assets and their licences are listed in ATTRIBUTION.md.
