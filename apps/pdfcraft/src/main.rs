@@ -59,7 +59,7 @@ const APP_ICON_PNG: &[u8] = include_bytes!("../../../assets/app-icon/hicolor/256
 /// What `-h` / `--help` prints (#4076): a hint, not the full option list (that is this file's
 /// doc comment and the README). Scripts want `pdfcraft-cli`, which never opens a window.
 const USAGE: &str = "\
-Usage: pdfcraft [options] [files…]
+Usage: pageforge [options] [files…]
 
 Opens the files in the PageForge desktop app.
 
@@ -222,7 +222,7 @@ fn main() -> eframe::Result {
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
         match a.as_str() {
-            "--version" => return print_and_exit(&format!("pdfcraft {}", pdfcraft_engine::build_info::version())),
+            "--version" => return print_and_exit(&format!("pageforge {}", pdfcraft_engine::build_info::version())),
             // Before any window or log file, so a scripted call returns (#4076).
             "-h" | "--help" => return print_and_exit(USAGE),
             "--control" => control_file = args.next(),
