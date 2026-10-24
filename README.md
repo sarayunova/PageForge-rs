@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/app-icon/hicolor/256x256/apps/ai.storyteller.pdfcraft.png" width="128" height="128" alt="PageForge icon: an engraved lion on a teal tile">
+  <img src="assets/app-icon/hicolor/256x256/apps/ai.storyteller.pdfcraft.png" width="128" height="128" alt="PageForge icon: a white document and pencil on a blue tile">
 </p>
 
 <h1 align="center">PageForge</h1>

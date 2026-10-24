@@ -1,12 +1,10 @@
-PdfCraft app icon (pdfcraft.svg, pdfcraft-small.svg and every file derived from them in this
-directory: pdfcraft-1024.png, pdfcraft.icns, pdfcraft.ico, hicolor/).
+PageForge app icon: pdfcraft.ico, pdfcraft-1024.png and hicolor/*/apps/ai.storyteller.pdfcraft.png.
 
-Original artwork made for this project by the project owner, drawn in ArtCraft and vectorised for
-PdfCraft (no third-party material). Licensed like the rest of PdfCraft, under either of
+Original artwork by LiVi Software Company, taken from the PageForge project
+(sarayunova/PageForge, assets/brand/pageforge-icon-source.png), masked to a rounded tile and
+scaled. No third-party material. The copyright holder licenses it for this repository under either
+of the MIT licence (LICENSE-MIT) or the Apache License 2.0 (LICENSE-APACHE), at your option.
 
-  * Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
-  * MIT license (https://opensource.org/licenses/MIT)
-
-at your option.
-
-Regenerate the derived files with packaging/icons.sh.
+The PdfCraft lion files in this directory (pdfcraft.svg, pdfcraft-small.svg, pdfcraft.icns,
+hicolor/scalable) are the original PdfCraft artwork, kept for now; they are not used by the app on
+Windows or Linux and are due to be replaced.
