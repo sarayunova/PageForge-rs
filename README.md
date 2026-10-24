@@ -434,7 +434,7 @@ The summary is in **[ROADMAP.md](ROADMAP.md)**; the full assessment by dimension
 Installers and executables are code-signed.
 
 The portable zip runs from any folder, a USB stick included. Its `portable.txt` keeps the settings,
-logs and crash recovery in a `PdfCraftData` folder next to `pdfcraft.exe`, so nothing is written to
+logs and crash recovery in a `PdfCraftData` folder next to `pageforge.exe`, so nothing is written to
 `%APPDATA%`; delete that file to use the normal per-user folders.
 
 The MSI installs for all users and requires administrator privileges. It adds "Edit with PageForge"

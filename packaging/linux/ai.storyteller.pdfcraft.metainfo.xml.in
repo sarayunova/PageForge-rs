@@ -52,7 +52,7 @@
     <control>tablet</control>
   </supports>
   <provides>
-    <binary>pdfcraft</binary>
+    <binary>pageforge</binary>
     <mediatype>application/pdf</mediatype>
   </provides>
   <content_rating type="oars-1.1"/>

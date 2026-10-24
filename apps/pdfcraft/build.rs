@@ -1,6 +1,6 @@
-//! Windows only: embed the app icon and version info (VERSIONINFO) into `pdfcraft.exe`, so it
+//! Windows only: embed the app icon and version info (VERSIONINFO) into `pageforge.exe`, so it
 //! shows in Explorer, the taskbar, the Start menu and Alt-Tab. A separate PDF document icon
-//! uses resource ID 2; the installer references it as `pdfcraft.exe,-2`.
+//! uses resource ID 2; the installer references it as `pageforge.exe,-2`.
 //!
 //! On every other target this does nothing. A missing resource compiler is a warning, so a
 //! cross-compile from macOS or Linux still links, unless `PDFCRAFT_REQUIRE_WINRES=1` turns it
@@ -25,13 +25,13 @@ fn main() {
         .set("ProductName", "PageForge")
         .set("FileDescription", "PageForge PDF workbench")
         .set("LegalCopyright", "Copyright (c) the PdfCraft contributors. MIT OR Apache-2.0.")
-        .set("OriginalFilename", "pdfcraft.exe")
-        .set("InternalName", "pdfcraft");
+        .set("OriginalFilename", "pageforge.exe")
+        .set("InternalName", "pageforge");
     if let Err(e) = res.compile() {
         if std::env::var_os("PDFCRAFT_REQUIRE_WINRES").is_some() {
             println!("cargo::error=embedding Windows resources failed: {e}");
             return;
         }
-        println!("cargo:warning=pdfcraft.exe built without icon/version resources: {e}");
+        println!("cargo:warning=pageforge.exe built without icon/version resources: {e}");
     }
 }

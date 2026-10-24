@@ -2837,7 +2837,7 @@ source = "Original brand art from sarayunova/PageForge (assets/brand/pageforge-i
 licence = "MIT OR Apache-2.0"
 licence_file = "assets/app-icon/LICENSE.txt"
 kind = "icon"
-usage = "Embedded in pdfcraft.exe by apps/pdfcraft/build.rs (Explorer, taskbar, Start menu, Alt-Tab)"
+usage = "Embedded in pageforge.exe by apps/pdfcraft/build.rs (Explorer, taskbar, Start menu, Alt-Tab)"
 sha256 = "3ced0ff70526b0ae2662ec75b715f52b368832ac1185b8d8ea54e8cc09b4679e"
 
 [[asset]]
@@ -2859,7 +2859,7 @@ source = "https://github.com/lucide-icons/lucide (npm lucide-static 1.49.0, icon
 licence = "ISC AND (MIT OR Apache-2.0)"
 licence_file = "assets/app-icon/LICENSE-document.txt"
 kind = "icon"
-usage = "Embedded in pdfcraft.exe as resource 2; the Windows installer uses it for PdfCraft.Document and Applications/pdfcraft.exe PDF file associations"
+usage = "Embedded in pageforge.exe as resource 2; the Windows installer uses it for PageForge.Document and Applications/pageforge.exe PDF file associations"
 sha256 = "ba3f9128b368fc6d17d376cf62dbdbc22455451c5c8c4779210d7a2a7409b9e6"
 
 [[asset]]
