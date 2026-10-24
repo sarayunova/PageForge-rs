@@ -2,7 +2,7 @@
 
 <img src="hicolor/128x128/apps/ai.storyteller.pdfcraft.png" alt="PageForge app icon: a white document and pencil on blue" width="128">
 
-> **Current icon (PageForge):** a white document-and-pencil glyph on a blue tile, by LiVi Software Company, from `sarayunova/PageForge` (`assets/brand/pageforge-icon-source.png`), masked to the rounded tile. It is used for `pdfcraft.ico`, `pdfcraft-1024.png` and `hicolor/<size>/apps/ai.storyteller.pdfcraft.png`. The source art has a small sparkle mark in its bottom-right corner. The file names are unchanged so packaging needs no edits.
+> **Current icon (PageForge):** a white document-and-pencil glyph on a blue tile, by LiVi Software Company (`pageforge-icon-source.png`), masked to the rounded tile. It is used for `pdfcraft.ico`, `pdfcraft-1024.png` and `hicolor/<size>/apps/ai.storyteller.pdfcraft.png`. The source art has a small sparkle mark in its bottom-right corner. The file names are unchanged so packaging needs no edits.
 >
 > **Not yet replaced:** `pdfcraft.svg`, `pdfcraft-small.svg`, `pdfcraft.icns` and `hicolor/scalable` are still the PdfCraft lion described below.
 

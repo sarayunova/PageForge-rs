@@ -1,7 +1,6 @@
 PageForge app icon: pdfcraft.ico, pdfcraft-1024.png and hicolor/*/apps/ai.storyteller.pdfcraft.png.
 
-Original artwork by LiVi Software Company, taken from the PageForge project
-(sarayunova/PageForge, assets/brand/pageforge-icon-source.png), masked to a rounded tile and
+Original artwork by LiVi Software Company (pageforge-icon-source.png), masked to a rounded tile and
 scaled. No third-party material. The copyright holder licenses it for this repository under either
 of the MIT licence (LICENSE-MIT) or the Apache License 2.0 (LICENSE-APACHE), at your option.
 
