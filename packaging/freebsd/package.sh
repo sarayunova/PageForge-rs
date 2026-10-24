@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Build PdfCraft for FreeBSD and package it:
-#   $DIST/pdfcraft-<version>-freebsd-<arch>.tar.gz   a /usr/local-style tree (bin/, share/)
+#   $DIST/pageforge-<version>-freebsd-<arch>.tar.gz   a /usr/local-style tree (bin/, share/)
 #
 # Extract it into /usr/local (or anywhere, and run bin/pageforge from there). The desktop entry,
 # MIME type, AppStream metadata and icons are the freedesktop ones Linux uses.
@@ -42,7 +42,7 @@ HOST_ARCH="$(release_arch "$(uname -m)" 2>/dev/null)" || HOST_ARCH="$(uname -m)"
 if [ -n "${CARGO_BUILD_TARGET:-}" ] && [ "$(uname -s)" != FreeBSD ]; then
   HOST_ARCH="$(uname -s) $HOST_ARCH"
 fi
-BASENAME="pdfcraft-$VERSION-freebsd-$ARCH"
+BASENAME="pageforge-$VERSION-freebsd-$ARCH"
 
 echo "==> PdfCraft $VERSION for FreeBSD $ARCH"
 

@@ -6,7 +6,7 @@ updates a **draft** GitHub Release named `PdfCraft v<version>`. Nobody sees a dr
 maintainer publishes it.
 
 The pipeline was ported from PhotoCraft's. User-facing names say **PdfCraft**; files, binaries and
-ids stay lowercase (`pdfcraft-<version>-<platform>-<arch>.<ext>`, `ai.storyteller.pdfcraft`).
+ids stay lowercase (`pageforge-<version>-<platform>-<arch>.<ext>`, `ai.storyteller.pdfcraft`).
 
 ## Cutting a release
 
@@ -170,7 +170,7 @@ xkbcommon) and the GPU (Vulkan, EGL) are loaded at runtime from the system; the 
 them as dependencies (see `nfpm.yaml`).
 
 Each AppImage embeds update information
-(`gh-releases-zsync|storytold|pdfcraft|latest|pdfcraft-*-linux-<arch>.AppImage.zsync`), and its
+(`gh-releases-zsync|storytold|pdfcraft|latest|pageforge-*-linux-<arch>.AppImage.zsync`), and its
 `.zsync` is published beside it, so AppImageUpdate and AppImageLauncher can update it in place,
 downloading only the changed blocks. `latest` is the newest published, non-pre-release version.
 `package.sh` writes the `.zsync` when `zsyncmake` (the `zsync` package) is installed and warns
@@ -241,7 +241,7 @@ a match of the `CobaltStrikeBeacon` family rule.
    - `NotTrusted` or `UnknownError`: a signature exists but did not validate on this machine. Compare
      the signer and the hash with the release.
 3. **Extract the payloads without running them.** Scan the executables inside the MSI and the
-   portable zip, not only the outer installer. `7z x -oDIR pdfcraft-<version>-windows-x64.msi`
+   portable zip, not only the outer installer. `7z x -oDIR pageforge-<version>-windows-x64.msi`
    extracts them. The payload names are WiX-internal, so tell the executables apart by their file
    type. Don't install or run the MSI or the extracted files.
 4. **Scan with YARA and keep every match.** Use your own copies of YARA and the rule. PdfCraft

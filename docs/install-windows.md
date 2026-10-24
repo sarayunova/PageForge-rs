@@ -8,18 +8,18 @@ Download from <https://github.com/sarayunova/PageForge-rs/releases/latest>:
 
 | File | What it is |
 |---|---|
-| `pdfcraft-<version>-windows-x64.msi` | Installer (all users, needs administrator rights) |
-| `pdfcraft-<version>-windows-x64-portable.zip` | No installer: unzip and run. Keeps settings beside the program |
+| `pageforge-<version>-windows-x64.msi` | Installer (all users, needs administrator rights) |
+| `pageforge-<version>-windows-x64-portable.zip` | No installer: unzip and run. Keeps settings beside the program |
 | `SHA256SUMS.txt` | Checksums of the files above |
 
-The file names still begin with `pdfcraft-`; the program inside is PageForge. Windows 10 or 11, 64-bit.
+Windows 10 or 11, 64-bit. The command-line tool inside is still called `pdfcraft-cli.exe`.
 
 ## 1. Check the download (recommended)
 
 In PowerShell, in the folder you downloaded to:
 
 ```powershell
-Get-FileHash .\pdfcraft-<version>-windows-x64.msi -Algorithm SHA256
+Get-FileHash .\pageforge-<version>-windows-x64.msi -Algorithm SHA256
 ```
 
 The hash must match the line for that file in `SHA256SUMS.txt`. If it does not, delete the file and

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Build, sign and (optionally) notarize the macOS release artifacts:
 #
-#   $DIST/pdfcraft-<version>-macos-<arch>.dmg          PdfCraft.app on a drag-to-Applications DMG
+#   $DIST/pageforge-<version>-macos-<arch>.dmg          PdfCraft.app on a drag-to-Applications DMG
 #   $DIST/pdfcraft-cli-<version>-macos-<arch>.zip      the headless CLI
 #
 # Usage: packaging/macos/package.sh [--arch universal|aarch64|x86_64] [--skip-build]
@@ -40,7 +40,7 @@ IDENTITY="${MACOS_SIGN_IDENTITY:--}"
 SHORT_VERSION="${VERSION%%-*}"
 WORK="$CARGO_TARGET_DIR/macos-package"
 APP="$WORK/PdfCraft.app"
-DMG="$DIST/pdfcraft-$VERSION-macos-$ARCH.dmg"
+DMG="$DIST/pageforge-$VERSION-macos-$ARCH.dmg"
 CLI_ZIP="$DIST/pdfcraft-cli-$VERSION-macos-$ARCH.zip"
 
 NOTARIZE=0

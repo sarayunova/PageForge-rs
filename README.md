@@ -427,9 +427,9 @@ The summary is in **[ROADMAP.md](ROADMAP.md)**; the full assessment by dimension
 
 | Build | Installer | Portable |
 |---|---|---|
-| x64 (64-bit Intel/AMD) | `pdfcraft-<ver>-windows-x64.msi` | `pdfcraft-<ver>-windows-x64-portable.zip` |
-| arm64 (Snapdragon and other ARM PCs) | `pdfcraft-<ver>-windows-arm64.msi` | `pdfcraft-<ver>-windows-arm64-portable.zip` |
-| x86 (32-bit) | `pdfcraft-<ver>-windows-x86.msi` | `pdfcraft-<ver>-windows-x86-portable.zip` |
+| x64 (64-bit Intel/AMD) | `pageforge-<ver>-windows-x64.msi` | `pageforge-<ver>-windows-x64-portable.zip` |
+| arm64 (Snapdragon and other ARM PCs) | `pageforge-<ver>-windows-arm64.msi` | `pageforge-<ver>-windows-arm64-portable.zip` |
+| x86 (32-bit) | `pageforge-<ver>-windows-x86.msi` | `pageforge-<ver>-windows-x86-portable.zip` |
 
 Installers and executables are code-signed.
 
@@ -444,7 +444,7 @@ images (.png .jpg .jpeg .tif .tiff .gif .bmp .jp2 .j2k .jpx) in File Explorer (o
 without a desktop shortcut, run from an elevated terminal:
 
 ```powershell
-msiexec /i "pdfcraft-<ver>-windows-x64.msi" /qn /norestart INSTALLDESKTOPSHORTCUT=0
+msiexec /i "pageforge-<ver>-windows-x64.msi" /qn /norestart INSTALLDESKTOPSHORTCUT=0
 ```
 
 | Property | `=0` leaves out |
@@ -473,21 +473,21 @@ be told apart by version, so if your deployment tool checks the file, pin its SH
 
 | Build | File | Notes |
 |---|---|---|
-| App, universal (Apple silicon + Intel) | `pdfcraft-<ver>-macos-universal.dmg` | Signing: see Signing identities above |
+| App, universal (Apple silicon + Intel) | `pageforge-<ver>-macos-universal.dmg` | Signing: see Signing identities above |
 | Command-line tool, universal | `pdfcraft-cli-<ver>-macos-universal.zip` | Signing: see Signing identities above |
 
 ### Linux
 
 | Format | x86_64 | aarch64 (ARM64) | Notes |
 |---|---|---|---|
-| AppImage | `pdfcraft-<ver>-linux-x86_64.AppImage` | `pdfcraft-<ver>-linux-aarch64.AppImage` | Runs anywhere; updates itself with [AppImageUpdate](https://github.com/AppImageCommunity/AppImageUpdate) (`.zsync` files) |
-| Flatpak | `pdfcraft-<ver>-linux-x86_64.flatpak` | `pdfcraft-<ver>-linux-aarch64.flatpak` | Sandboxed; `flatpak install --user <file>` |
-| Debian/Ubuntu | `pdfcraft-<ver>-linux-x86_64.deb` | `pdfcraft-<ver>-linux-aarch64.deb` | |
-| Fedora/RHEL/openSUSE | `pdfcraft-<ver>-linux-x86_64.rpm` | `pdfcraft-<ver>-linux-aarch64.rpm` | |
-| Tarball | `pdfcraft-<ver>-linux-x86_64.tar.gz` | `pdfcraft-<ver>-linux-aarch64.tar.gz` | Unpack anywhere |
+| AppImage | `pageforge-<ver>-linux-x86_64.AppImage` | `pageforge-<ver>-linux-aarch64.AppImage` | Runs anywhere; updates itself with [AppImageUpdate](https://github.com/AppImageCommunity/AppImageUpdate) (`.zsync` files) |
+| Flatpak | `pageforge-<ver>-linux-x86_64.flatpak` | `pageforge-<ver>-linux-aarch64.flatpak` | Sandboxed; `flatpak install --user <file>` |
+| Debian/Ubuntu | `pageforge-<ver>-linux-x86_64.deb` | `pageforge-<ver>-linux-aarch64.deb` | |
+| Fedora/RHEL/openSUSE | `pageforge-<ver>-linux-x86_64.rpm` | `pageforge-<ver>-linux-aarch64.rpm` | |
+| Tarball | `pageforge-<ver>-linux-x86_64.tar.gz` | `pageforge-<ver>-linux-aarch64.tar.gz` | Unpack anywhere |
 | Command-line tool | `pdfcraft-cli-<ver>-linux-x86_64.tar.gz` | `pdfcraft-cli-<ver>-linux-aarch64.tar.gz` | `pdfcraft-cli` alone (and its opt-in MCP server), for servers, CI and agents |
 
-RISC-V (riscv64) builds come as tarballs only: `pdfcraft-<ver>-linux-riscv64.tar.gz` and `pdfcraft-cli-<ver>-linux-riscv64.tar.gz`. They are cross-compiled and need glibc 2.39 or newer (Ubuntu 24.04+, Debian 13+).
+RISC-V (riscv64) builds come as tarballs only: `pageforge-<ver>-linux-riscv64.tar.gz` and `pdfcraft-cli-<ver>-linux-riscv64.tar.gz`. They are cross-compiled and need glibc 2.39 or newer (Ubuntu 24.04+, Debian 13+).
 
 Every other Linux build needs glibc 2.35 or newer (Ubuntu 22.04+, Debian 12+, Fedora 36+, RHEL 10).
 
@@ -495,7 +495,7 @@ Every other Linux build needs glibc 2.35 or newer (Ubuntu 22.04+, Debian 12+, Fe
 
 | Build | File |
 |---|---|
-| x86_64 | `pdfcraft-<ver>-freebsd-x86_64.tar.gz` |
+| x86_64 | `pageforge-<ver>-freebsd-x86_64.tar.gz` |
 
 ### Web (WebAssembly)
 
