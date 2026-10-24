@@ -15,7 +15,7 @@ release: ${RELEASE}
 section: graphics
 priority: optional
 maintainer: ${PDFCRAFT_MAINTAINER}
-vendor: Learning Machines LLC
+vendor: LiVi Software Company
 homepage: https://getartcraft.com/apps/pdfcraft
 license: MIT OR Apache-2.0
 description: |-
