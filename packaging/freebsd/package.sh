@@ -58,8 +58,8 @@ rm -rf "$WORK"
 # FreeBSD's install(1) has no -D: create the directories first.
 mkdir -p "$STAGE/bin" "$STAGE/share/applications" "$STAGE/share/mime/packages" "$STAGE/share/metainfo" \
   "$STAGE/share/icons" "$STAGE/share/doc/pdfcraft"
-install -m 755 "$BIN/pdfcraft" "$BIN/pdfcraft-cli" "$STAGE/bin/"
-strip "$STAGE/bin/pageforge" "$STAGE/bin/pdfcraft-cli" 2>/dev/null || true
+install -m 755 "$BIN/pageforge" "$BIN/pageforge-cli" "$STAGE/bin/"
+strip "$STAGE/bin/pageforge" "$STAGE/bin/pageforge-cli" 2>/dev/null || true
 install -m 644 "$LINUX/$APP_ID.desktop" "$STAGE/share/applications/$APP_ID.desktop"
 install -m 644 "$LINUX/$APP_ID.mime.xml" "$STAGE/share/mime/packages/$APP_ID.xml"
 sed -e "s/@VERSION@/$VERSION/g" -e "s/@DATE@/$PDFCRAFT_BUILD_DATE/g" \

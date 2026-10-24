@@ -6,7 +6,7 @@
 #   $DIST/pageforge-<version>-linux-<arch>.deb       Debian, Ubuntu, Mint, Pop!_OS, ...
 #   $DIST/pageforge-<version>-linux-<arch>.rpm       Fedora, openSUSE, RHEL, ...
 #   $DIST/pageforge-<version>-linux-<arch>.tar.gz    plain FHS-style tree (bin/, share/)
-#   $DIST/pdfcraft-cli-<version>-linux-<arch>.tar.gz  the headless CLI alone (servers, CI, agents)
+#   $DIST/pageforge-cli-<version>-linux-<arch>.tar.gz  the headless CLI alone (servers, CI, agents)
 #
 # A local or patched build: set PDFCRAFT_BUILD_LABEL (e.g. `titlebar`). `--version` and About then
 # show `0.7.1 (titlebar)`, file names carry `-titlebar`, and the .rpm/.deb release becomes
@@ -66,8 +66,8 @@ rm -rf "$WORK"
 
 # ---- stage an FHS tree (shared by every format) -------------------------------------------------
 install -Dm755 "$BIN/pageforge" "$STAGE/usr/bin/pageforge"
-install -Dm755 "$BIN/pdfcraft-cli" "$STAGE/usr/bin/pdfcraft-cli"
-"${CROSS_COMPILE:-}strip" "$STAGE/usr/bin/pageforge" "$STAGE/usr/bin/pdfcraft-cli" 2>/dev/null || true
+install -Dm755 "$BIN/pageforge-cli" "$STAGE/usr/bin/pageforge-cli"
+"${CROSS_COMPILE:-}strip" "$STAGE/usr/bin/pageforge" "$STAGE/usr/bin/pageforge-cli" 2>/dev/null || true
 install -Dm644 "$HERE/$APP_ID.desktop" "$STAGE/usr/share/applications/$APP_ID.desktop"
 install -Dm644 "$HERE/$APP_ID.mime.xml" "$STAGE/usr/share/mime/packages/$APP_ID.xml"
 mkdir -p "$STAGE/usr/share/metainfo"
@@ -101,13 +101,13 @@ if has tar; then
 fi
 
 # ---- CLI-only .tar.gz ---------------------------------------------------------------------------
-# The stripped pdfcraft-cli (and its opt-in MCP server) with the licences, for machines that never
+# The stripped pageforge-cli (and its opt-in MCP server) with the licences, for machines that never
 # open a window. Like the other formats it needs glibc >= the build host's.
 if has cli; then
-  CLI_NAME="pdfcraft-cli-$VERSION$LABEL_SUFFIX-linux-$ARCH"
+  CLI_NAME="pageforge-cli-$VERSION$LABEL_SUFFIX-linux-$ARCH"
   CLI_DIR="$WORK/cli/$CLI_NAME"
   mkdir -p "$CLI_DIR"
-  cp "$STAGE/usr/bin/pdfcraft-cli" "$CLI_DIR/"
+  cp "$STAGE/usr/bin/pageforge-cli" "$CLI_DIR/"
   copy_docs "$CLI_DIR"
   tar -C "$WORK/cli" -czf "$DIST/$CLI_NAME.tar.gz" "$CLI_NAME"
   echo "wrote $DIST/$CLI_NAME.tar.gz"
@@ -206,9 +206,9 @@ if has appimage; then
 fi
 
 if [[ -z "${CROSS_TARGET:-}" ]]; then
-  "$STAGE/usr/bin/pdfcraft-cli" --version
+  "$STAGE/usr/bin/pageforge-cli" --version
 elif [[ -n "${EMULATOR:-}" ]]; then
-  "$EMULATOR" "$STAGE/usr/bin/pdfcraft-cli" --version
+  "$EMULATOR" "$STAGE/usr/bin/pageforge-cli" --version
 fi
 echo "==> done"
 ls -lh "$DIST"

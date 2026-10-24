@@ -61,7 +61,7 @@ objc2-foundation = { version = "0.3", default-features = false, features = ["std
 block2 = "0.6"
 plist = "1.10"
 # A plain fsync where a volume refuses the full flush `sync_all` asks for (SMB, FUSE); already in
-# the tree through pdfcraft-cli.
+# the tree through pageforge-cli.
 rustix = { version = "1", features = ["fs"] }
 
 [target.'cfg(windows)'.dependencies]

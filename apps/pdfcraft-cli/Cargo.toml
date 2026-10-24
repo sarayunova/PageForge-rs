@@ -6,7 +6,7 @@ edition.workspace = true
 license.workspace = true
 
 [[bin]]
-name = "pdfcraft-cli"
+name = "pageforge-cli"
 path = "src/main.rs"
 
 [lints]
@@ -33,10 +33,10 @@ png = "0.18"
 rustix = { version = "1", features = ["process"] }
 
 [build-dependencies]
-# VERSIONINFO for pdfcraft-cli.exe; build.rs only uses it when targeting Windows.
+# VERSIONINFO for pageforge-cli.exe; build.rs only uses it when targeting Windows.
 winresource = "0.1"
 
 [features]
 default = ["mcp"]
-# The opt-in MCP server (`pdfcraft-cli mcp`). Build with --no-default-features to leave it out.
+# The opt-in MCP server (`pageforge-cli mcp`). Build with --no-default-features to leave it out.
 mcp = ["pdfcraft-automation/mcp"]

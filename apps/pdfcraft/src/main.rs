@@ -17,7 +17,7 @@
 //! `--control <file>` enables the UI control channel (off by default): the app listens on a random
 //! loopback port and writes `{"port", "token", "pid"}` to `<file>` (owner-only permissions). The
 //! app doesn't start if it can't.
-//! Agents then drive it with `pdfcraft-cli ui --control <file> <method> …`.
+//! Agents then drive it with `pageforge-cli ui --control <file> <method> …`.
 
 // Release builds on Windows are GUI-subsystem programs, so launching the app doesn't open a console
 // window next to it (#57). `--version` and diagnostics then go nowhere when started from a terminal
@@ -57,7 +57,7 @@ const APP_ICON_PNG: &[u8] = include_bytes!("../../../assets/app-icon/pdfcraft-10
 const APP_ICON_PNG: &[u8] = include_bytes!("../../../assets/app-icon/hicolor/256x256/apps/ai.storyteller.pdfcraft.png");
 
 /// What `-h` / `--help` prints (#4076): a hint, not the full option list (that is this file's
-/// doc comment and the README). Scripts want `pdfcraft-cli`, which never opens a window.
+/// doc comment and the README). Scripts want `pageforge-cli`, which never opens a window.
 const USAGE: &str = "\
 Usage: pageforge [options] [files…]
 
@@ -66,13 +66,13 @@ Opens the files in the PageForge desktop app.
 Options:
   --new-window                open a window of its own instead of passing the files to a running PageForge
   --create-images [images…]   put the images in one PDF and ask for the page DPI
-  --control <file>            enable the UI control channel (pdfcraft-cli ui --control <file> …)
+  --control <file>            enable the UI control channel (pageforge-cli ui --control <file> …)
   --page N, --zoom 150, --layout continuous, --theme dark, …
                               view settings applied once the files are open
   -h, --help                  print this and exit
   --version                   print the version and exit
 
-To inspect, convert or edit PDFs from a script, use pdfcraft-cli (pdfcraft-cli --help).";
+To inspect, convert or edit PDFs from a script, use pageforge-cli (pageforge-cli --help).";
 
 /// Print `text` for `--help` and `--version`. `println!` would panic on a full or closed
 /// standard output; this exits normally instead.

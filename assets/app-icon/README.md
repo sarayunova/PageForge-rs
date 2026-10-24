@@ -48,8 +48,8 @@ Where it shows: `apps/pdfcraft/src/main.rs` sets the window icon (Dock, taskbar,
 Wayland app id `ai.storyteller.pdfcraft`; `packaging/linux/ai.storyteller.pdfcraft.desktop` names the
 hicolor icon.
 
-Windows PDF files use resource 2 (`"pageforge.exe",-2`) when PdfCraft is chosen as the default
-reader; the app keeps resource 1. The document outline is adapted from Lucide `file-text`
+The Windows installer shows PDF files that PageForge opens with the PageForge app icon (resource 1,
+`"pageforge.exe",0`); resource 2, the PDF document icon, is embedded but no longer referenced. Its document outline is adapted from Lucide `file-text`
 1.49.0 (ISC); its badge and outlined lettering are original (`MIT OR Apache-2.0`), covered by
 [LICENSE-document.txt](LICENSE-document.txt). Both icons are embedded, requiring no runtime
 sidecar. This provides a file type icon; first-page thumbnails still need a thumbnail provider.

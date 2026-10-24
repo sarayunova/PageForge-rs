@@ -85,8 +85,8 @@ Every user-facing feature is reachable headlessly (`AGENTS.md` §3):
 
 - the **command registry** (`crates/engine/src/commands.rs`, 184 commands) generates menus,
   shortcuts and the command palette;
-- the **automation tool table** (`crates/automation`, 141 tools) is shared by `pdfcraft-cli run`
-  and the opt-in **MCP server** (stdio only; `pdfcraft-cli mcp`), confined to `--root`;
+- the **automation tool table** (`crates/automation`, 141 tools) is shared by `pageforge-cli run`
+  and the opt-in **MCP server** (stdio only; `pageforge-cli mcp`), confined to `--root`;
 - the opt-in **UI control channel** (`pdfcraft --control FILE`; loopback, per-launch token) lets an
   agent inspect, click, type, run commands and take screenshots of the real interface.
 
@@ -99,7 +99,7 @@ Every user-facing feature is reachable headlessly (`AGENTS.md` §3):
 
 ## Build and quality gates
 
-`cargo xtask ci` runs fmt, clippy (`-D warnings`), a check of `pdfcraft-cli` without default
+`cargo xtask ci` runs fmt, clippy (`-D warnings`), a check of `pageforge-cli` without default
 features, the tests (`xtask test`: cargo-nextest when installed, else `cargo test`, then the
 doctests), the layering check, the WASM check (one `cargo check` over every crate below L8),
 `xtask assets` (asset licences and hashes), `xtask parity` (checklist claims must cite real commands,

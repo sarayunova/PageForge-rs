@@ -12,7 +12,7 @@ Download from <https://github.com/sarayunova/PageForge-rs/releases/latest>:
 | `pageforge-<version>-windows-x64-portable.zip` | No installer: unzip and run. Keeps settings beside the program |
 | `SHA256SUMS.txt` | Checksums of the files above |
 
-Windows 10 or 11, 64-bit. The command-line tool inside is still called `pdfcraft-cli.exe`.
+Windows 10 or 11, 64-bit. The command-line tool inside is still called `pageforge-cli.exe`.
 
 ## 1. Check the download (recommended)
 

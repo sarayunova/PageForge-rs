@@ -16,7 +16,7 @@
   pwsh packaging/windows/security-audit.ps1 -Path dist\release\pageforge-0.5.0-windows-x64-portable\pageforge.exe
 
 .EXAMPLE
-  pwsh packaging/windows/security-audit.ps1 -Path .\pageforge.exe, .\pdfcraft-cli.exe -YaraExe C:\tools\yara64.exe -YaraRule C:\rules\CobaltStrikeBeacon.yar
+  pwsh packaging/windows/security-audit.ps1 -Path .\pageforge.exe, .\pageforge-cli.exe -YaraExe C:\tools\yara64.exe -YaraRule C:\rules\CobaltStrikeBeacon.yar
 #>
 param(
   [Parameter(Mandatory)] [string[]] $Path,

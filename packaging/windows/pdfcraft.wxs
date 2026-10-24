@@ -107,9 +107,8 @@
              PageForge entry to pick was the advertised Start Menu shortcut, which Windows can't
              run as a file handler ("This app can't run on your PC"). -->
         <RegistryValue Root="HKLM" Key="Software\Classes\PageForge.Document" Value="PDF Document" Type="string" />
-        <!-- A negative index selects the stable icon resource ID, rather than its position.
-             Resource 1 is the app's lion; resource 2 is the PDF document (build.rs). -->
-        <RegistryValue Root="HKLM" Key="Software\Classes\PageForge.Document\DefaultIcon" Value="&quot;[#PdfcraftExe]&quot;,-2" Type="string" />
+        <!-- PDF files show the PageForge app icon (index 0, the first icon in pageforge.exe). -->
+        <RegistryValue Root="HKLM" Key="Software\Classes\PageForge.Document\DefaultIcon" Value="&quot;[#PdfcraftExe]&quot;,0" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\PageForge.Document\shell\open\command" Value="&quot;[#PdfcraftExe]&quot; &quot;%1&quot;" Type="string" />
         <!-- No overlay on thumbnails and in the preview pane: without TypeOverlay, Windows paints
              the default program's icon (the lion) over the lower-right corner of every PDF
@@ -118,7 +117,7 @@
         <RegistryValue Root="HKLM" Key="Software\Classes\PageForge.Document" Name="TypeOverlay" Value="" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\.pdf\OpenWithProgids" Name="PageForge.Document" Value="" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\Applications\pageforge.exe" Name="FriendlyAppName" Value="PageForge" Type="string" />
-        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\pageforge.exe\DefaultIcon" Value="&quot;[#PdfcraftExe]&quot;,-2" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\pageforge.exe\DefaultIcon" Value="&quot;[#PdfcraftExe]&quot;,0" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\Applications\pageforge.exe\SupportedTypes" Name=".pdf" Value="" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\Applications\pageforge.exe\shell\open\command" Value="&quot;[#PdfcraftExe]&quot; &quot;%1&quot;" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\PageForge\Capabilities" Name="ApplicationName" Value="PageForge" Type="string" />
@@ -201,7 +200,7 @@
       </Component>
 
       <Component Id="PdfcraftCli">
-        <File Id="PdfcraftCliExe" Source="$(var.BinDir)\pdfcraft-cli.exe" KeyPath="yes" />
+        <File Id="PdfcraftCliExe" Source="$(var.BinDir)\pageforge-cli.exe" KeyPath="yes" />
       </Component>
       <!-- The embedded PDF icon's ISC notice and project licences travel with the binaries. -->
       <Component Id="PdfcraftDocumentIconLicense">

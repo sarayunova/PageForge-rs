@@ -1,6 +1,6 @@
 //! Windows only: embed the app icon and version info (VERSIONINFO) into `pageforge.exe`, so it
 //! shows in Explorer, the taskbar, the Start menu and Alt-Tab. A separate PDF document icon
-//! uses resource ID 2; the installer references it as `pageforge.exe,-2`.
+//! (resource ID 2) is embedded too; the installer now shows PDFs with the app icon, `pageforge.exe,0`.
 //!
 //! On every other target this does nothing. A missing resource compiler is a warning, so a
 //! cross-compile from macOS or Linux still links, unless `PDFCRAFT_REQUIRE_WINRES=1` turns it

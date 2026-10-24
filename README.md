@@ -183,9 +183,9 @@ Nothing quietly disappears along the way:
 Every page of a combined document renders pixel-identical to its source.
 
 ```sh
-pdfcraft-cli combine report.pdf appendix.pdf --out combined.pdf
-pdfcraft-cli extract report.pdf --pages 1,3,5-8 --out highlights.pdf
-pdfcraft-cli split   report.pdf --every 10 --out-dir parts/
+pageforge-cli combine report.pdf appendix.pdf --out combined.pdf
+pageforge-cli extract report.pdf --pages 1,3,5-8 --out highlights.pdf
+pageforge-cli split   report.pdf --every 10 --out-dir parts/
 ```
 
 ---
@@ -249,12 +249,12 @@ Press <kbd>⌘K</kbd> to search every tool and command, or browse the **All tool
 - **Native on macOS, Windows, Linux and FreeBSD**, and **in the browser** through WebAssembly, from the same Rust codebase. Windows builds come for x64, x86 and ARM64 (Windows on ARM, no emulation); every ARM64 change is tested on ARM64 hardware in CI.
 - **Private by design.** Documents never leave your machine. There's no account, no telemetry and no cloud processing.
 - **Engine first.** Parsing, rendering and editing live in reusable library crates. The interface is one swappable layer on top.
-- **Scriptable.** The `pdfcraft-cli` tool (see [Built for agents, too](#built-for-agents-too)) covers inspecting, rendering, extracting text, editing, combining, extracting pages and splitting. Robustness sweeps run on the same engine as the app.
+- **Scriptable.** The `pageforge-cli` tool (see [Built for agents, too](#built-for-agents-too)) covers inspecting, rendering, extracting text, editing, combining, extracting pages and splitting. Robustness sweeps run on the same engine as the app.
 
 ```sh
-pdfcraft-cli info  form.pdf                                  # structure as JSON
-pdfcraft-cli text  paper.pdf --page 3                        # reading-order text
-pdfcraft-cli edit  in.pdf --rotate 1,2:90 --delete 5 --title "Q3" --out out.pdf
+pageforge-cli info  form.pdf                                  # structure as JSON
+pageforge-cli text  paper.pdf --page 3                        # reading-order text
+pageforge-cli edit  in.pdf --rotate 1,2:90 --delete 5 --title "Q3" --out out.pdf
 ```
 
 ---
@@ -263,22 +263,22 @@ pdfcraft-cli edit  in.pdf --rotate 1,2:90 --delete 5 --title "Q3" --out out.pdf
 
 Every engine feature is reachable without the GUI, through one table of JSON-Schema-described tools: open, inspect, render pages to PNG, extract and find text, rotate, delete, move and insert pages, edit bookmarks and page labels, add, reply to, restyle and delete comments (highlight a phrase just by naming it), list and fill in form fields, protect with passwords, set metadata, undo and redo, save, combine, extract and split. Three front doors share it:
 
-- **`pdfcraft-cli run`**, for one-off calls and JSON scripts:
+- **`pageforge-cli run`**, for one-off calls and JSON scripts:
 
   ```sh
-  pdfcraft-cli tools                                        # every tool and its JSON Schema
-  pdfcraft-cli run text_find doc=1 query=invoice            # key=value; values parse as JSON
-  pdfcraft-cli run --script review.json                     # e.g. comment_add {"type": "highlight", "find": "total due"}
-  pdfcraft-cli run --script steps.json --root ./work        # several steps in one session
-  pdfcraft-cli run --script steps.json --report             # one JSON document: per step its number, tool, status, result or error
+  pageforge-cli tools                                        # every tool and its JSON Schema
+  pageforge-cli run text_find doc=1 query=invoice            # key=value; values parse as JSON
+  pageforge-cli run --script review.json                     # e.g. comment_add {"type": "highlight", "find": "total due"}
+  pageforge-cli run --script steps.json --root ./work        # several steps in one session
+  pageforge-cli run --script steps.json --report             # one JSON document: per step its number, tool, status, result or error
   ```
 
   With `--root`, every file the script's steps read or write stays in that directory, including the PNG a step saves with `"out"` (the script itself is read from wherever you name it).
 
-- **An MCP server**, for AI agents such as Claude. **It is opt-in:** PageForge never starts it on its own, and it opens no network port. It runs only while an agent launches `pdfcraft-cli mcp`, talks over stdin/stdout, and stops when the agent disconnects. To enable it, add it to your agent's MCP configuration:
+- **An MCP server**, for AI agents such as Claude. **It is opt-in:** PageForge never starts it on its own, and it opens no network port. It runs only while an agent launches `pageforge-cli mcp`, talks over stdin/stdout, and stops when the agent disconnects. To enable it, add it to your agent's MCP configuration:
 
   ```json
-  { "mcpServers": { "pdfcraft": { "command": "pdfcraft-cli", "args": ["mcp", "--root", "/path/to/your/pdfs"] } } }
+  { "mcpServers": { "pdfcraft": { "command": "pageforge-cli", "args": ["mcp", "--root", "/path/to/your/pdfs"] } } }
   ```
 
   `--compact` shrinks the tool list the agent has to read: `tools/list` returns about ten core tools plus `tool_search` and `tool_call`, which find and run every other tool, so the list costs far fewer tokens. Every tool still works.
@@ -293,19 +293,19 @@ Edits stay in memory, undoable, until `doc_save`. Saving to the same file append
 
 Start the desktop app with `pdfcraft --control ~/.pdfcraft-control.json` and an agent can see and operate the real interface: the widget tree with labels and positions (from the accessibility tree), clicks, typing, keys, commands, view options and screenshots. This is also off by default. It listens only on loopback, and every connection must present the random token written to that file, which only you can read.
 
-Keep the control file in a folder only you can write, not a shared one such as `/tmp`: another user could create the file there first and receive your commands. `pdfcraft-cli ui` refuses a control file that is a symbolic link, and on macOS, Linux and FreeBSD one that another user owns or can read or write. The app doesn't start if it can't write the file.
+Keep the control file in a folder only you can write, not a shared one such as `/tmp`: another user could create the file there first and receive your commands. `pageforge-cli ui` refuses a control file that is a symbolic link, and on macOS, Linux and FreeBSD one that another user owns or can read or write. The app doesn't start if it can't write the file.
 
 ```sh
-pdfcraft-cli ui --control ~/.pdfcraft-control.json inspect query=rotate      # find widgets
-pdfcraft-cli ui --control ~/.pdfcraft-control.json click label="Organize pages"
-pdfcraft-cli ui --control ~/.pdfcraft-control.json key key=K modifiers='["command"]'
-pdfcraft-cli ui --control ~/.pdfcraft-control.json command id=comment.square   # pick a tool, then draw:
-pdfcraft-cli ui --control ~/.pdfcraft-control.json drag from='[400,300]' to='[600,420]'
-pdfcraft-cli ui --control ~/.pdfcraft-control.json screenshot --out window.png
-pdfcraft-cli ui --control ~/.pdfcraft-control.json resize width=1200 height=800
-pdfcraft-cli ui --control ~/.pdfcraft-control.json focus label="Read"
-pdfcraft-cli ui --control ~/.pdfcraft-control.json inspect focused=true
-pdfcraft-cli ui --control ~/.pdfcraft-control.json quit
+pageforge-cli ui --control ~/.pdfcraft-control.json inspect query=rotate      # find widgets
+pageforge-cli ui --control ~/.pdfcraft-control.json click label="Organize pages"
+pageforge-cli ui --control ~/.pdfcraft-control.json key key=K modifiers='["command"]'
+pageforge-cli ui --control ~/.pdfcraft-control.json command id=comment.square   # pick a tool, then draw:
+pageforge-cli ui --control ~/.pdfcraft-control.json drag from='[400,300]' to='[600,420]'
+pageforge-cli ui --control ~/.pdfcraft-control.json screenshot --out window.png
+pageforge-cli ui --control ~/.pdfcraft-control.json resize width=1200 height=800
+pageforge-cli ui --control ~/.pdfcraft-control.json focus label="Read"
+pageforge-cli ui --control ~/.pdfcraft-control.json inspect focused=true
+pageforge-cli ui --control ~/.pdfcraft-control.json quit
 ```
 
 `ui.dock` arranges the `tools` and `inspector` panels; `canvas` is the protected document view.
@@ -338,7 +338,7 @@ PageForge is a Cargo workspace of focused crates, layered so the core never depe
 | `pdfcraft-forms` | Interactive forms: the field model, filling with regenerated appearances, Clear form |
 | `pdfcraft-render` | Rendering, inspection and text extraction with reading order |
 | `pdfcraft-engine` | The façade every frontend uses: sessions, edits, undo, saving, the tool catalogue |
-| `pdfcraft-automation` | Agent control: the headless tool table, `pdfcraft-cli run`, and the opt-in MCP server |
+| `pdfcraft-automation` | Agent control: the headless tool table, `pageforge-cli run`, and the opt-in MCP server |
 | `pdfcraft-ui-egui` | The desktop and web interface |
 
 **Quality gates.** Every change passes the same automated checks:
@@ -474,7 +474,7 @@ be told apart by version, so if your deployment tool checks the file, pin its SH
 | Build | File | Notes |
 |---|---|---|
 | App, universal (Apple silicon + Intel) | `pageforge-<ver>-macos-universal.dmg` | Signing: see Signing identities above |
-| Command-line tool, universal | `pdfcraft-cli-<ver>-macos-universal.zip` | Signing: see Signing identities above |
+| Command-line tool, universal | `pageforge-cli-<ver>-macos-universal.zip` | Signing: see Signing identities above |
 
 ### Linux
 
@@ -485,9 +485,9 @@ be told apart by version, so if your deployment tool checks the file, pin its SH
 | Debian/Ubuntu | `pageforge-<ver>-linux-x86_64.deb` | `pageforge-<ver>-linux-aarch64.deb` | |
 | Fedora/RHEL/openSUSE | `pageforge-<ver>-linux-x86_64.rpm` | `pageforge-<ver>-linux-aarch64.rpm` | |
 | Tarball | `pageforge-<ver>-linux-x86_64.tar.gz` | `pageforge-<ver>-linux-aarch64.tar.gz` | Unpack anywhere |
-| Command-line tool | `pdfcraft-cli-<ver>-linux-x86_64.tar.gz` | `pdfcraft-cli-<ver>-linux-aarch64.tar.gz` | `pdfcraft-cli` alone (and its opt-in MCP server), for servers, CI and agents |
+| Command-line tool | `pageforge-cli-<ver>-linux-x86_64.tar.gz` | `pageforge-cli-<ver>-linux-aarch64.tar.gz` | `pageforge-cli` alone (and its opt-in MCP server), for servers, CI and agents |
 
-RISC-V (riscv64) builds come as tarballs only: `pageforge-<ver>-linux-riscv64.tar.gz` and `pdfcraft-cli-<ver>-linux-riscv64.tar.gz`. They are cross-compiled and need glibc 2.39 or newer (Ubuntu 24.04+, Debian 13+).
+RISC-V (riscv64) builds come as tarballs only: `pageforge-<ver>-linux-riscv64.tar.gz` and `pageforge-cli-<ver>-linux-riscv64.tar.gz`. They are cross-compiled and need glibc 2.39 or newer (Ubuntu 24.04+, Debian 13+).
 
 Every other Linux build needs glibc 2.35 or newer (Ubuntu 22.04+, Debian 12+, Fedora 36+, RHEL 10).
 

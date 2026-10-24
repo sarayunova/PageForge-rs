@@ -281,7 +281,7 @@ M2 (renderer), M7 (content editing), M10 (OCR and Office), M11 (Preflight and st
 | 2026-10-15 | minor | M2: an object stream's index is parsed once per stream (hayro-syntax patch 22), not once per object fetched from it; a page whose 65,542 objects share one stream draws in 0.5 s instead of 37 s. Estimates unchanged. |
 | 2026-10-12 | minor | M1 #1338: a full rewrite keeps unknown trailer entries and objects reachable only from them. Estimates unchanged. |
 | 2026-10-12 | minor | M7 #1443: adding a word to a multi-line paragraph keeps its line breaks. Composite subset fonts whose `/W` leaves out default-width glyphs (Chrome, Skia) no longer measure those letters as missing, and paragraphs drawn turned on the page group into rows along their own baselines. Estimates unchanged. |
-| 2026-10-15 | minor | M14: PNG export (Export ▸ Image, `pdfcraft-cli render`, `page_render`) writes opaque pages as RGB at deflate level 3: the same file size, 3–5× faster to write. Estimates unchanged. |
+| 2026-10-15 | minor | M14: PNG export (Export ▸ Image, `pageforge-cli render`, `page_render`) writes opaque pages as RGB at deflate level 3: the same file size, 3–5× faster to write. Estimates unchanged. |
 | 2026-10-22 | minor | M14: JPEG and TIFF export (Export ▸ Image) refuse a raster that is not exactly width × height pixels, as PNG export does, instead of panicking in the encoder or dropping a partial pixel. Estimates unchanged. |
 | 2026-10-14 | minor | M14: Italian catalog completed (2,528 entries) and dropped from the ≈ 2,000–2,140-entry group; estimates unchanged |
 | 2026-10-12 | minor | M4 #1310 #1311 #1312: undo back to the opened file is clean, Revert returns to the last saved file, and the next save keeps that revision. Estimates unchanged. |
