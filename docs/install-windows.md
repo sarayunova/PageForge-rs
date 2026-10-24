@@ -1,6 +1,6 @@
 # Installing PageForge on Windows
 
-Status: current for v0.13.0. These builds are **not code-signed yet** (a signing certificate has been
+Status: current for v0.13.1. These builds are **not code-signed yet** (a signing certificate has been
 applied for). Windows will therefore show a warning the first time you run them; the steps below
 explain it and how to check that the files are genuine.
 
